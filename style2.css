@@ -1,0 +1,168 @@
+@import url('https://css.gg/trophy.css');
+body
+{
+    background-color: #0b161c;
+ /* background-image:url("lgradient.jpeg");*/
+    background-repeat: no-repeat;
+    background-size:cover;
+    overflow-y: hidden;
+
+}
+
+#icons-container
+{
+    background-color:010e14;
+    align-items: center;
+}
+
+.nav{
+    background-color:#010e14;
+}
+
+#DiveINButton
+{
+    background-color: #3282b8;
+    color: black;
+    border-color: whitesmoke;
+    padding:10px;
+    height:50px;
+    border-radius:10px;
+    border-color:black;
+    transition: 200ms ease-out;
+}
+
+#DiveINButton:hover{
+        border:2px solid #3282b8;
+        border-radius: 10px;
+        background-color:black;
+        color: white;
+    }
+.navButtons{
+    height:50px;
+    transition-duration: 0.3s; 
+    color:whitesmoke;
+    padding:10px;
+    background-color: #121212;
+    border-color:#121212;
+    transition: 200ms ease-out;
+    border-radius: 4px;
+    border-bottom-width:0%;
+    margin:0px;
+}
+.navButtons:hover{
+    border-bottom:4px solid #3282b8;
+    border-radius: 4px;
+    border-bottom-width: 100%;
+    
+}
+#branding
+{
+    padding-left: 200px;
+    font-size:22px;
+}
+#header{
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    display: flex;
+    align-items: center;
+    background-color:#010e14;
+    border-style: none;
+    justify-content: space-between;
+    color: whitesmoke;
+    padding-bottom:2px;
+    margin: 0px;
+    font-family: 'Poppins',"Work Sans","Roboto","Ubuntu";
+    z-index: 1;   
+}
+#MainBody
+{
+    padding-top:45px;
+    background-color: #0b161c;
+    color:black;
+    height=99vh;
+    width=99.5vw;
+    border:0px;
+    margin:0px;
+}
+#Hello
+{
+    font-size:72px;
+    height:100vh;
+    width:98vw;
+    height=98vh;
+    line-height:84vh;
+    white-space:nowrap;
+    position:relative;
+    align-items: center;
+    
+}
+#countdown
+{
+    align-self: center;
+    color:antiquewhite;
+    position:absolute;
+    top:46vh;
+    line-height: 10vh;
+    left:43vw;
+    font-size:35px;
+    font-family: 'Orbitron',sans-serif;
+   
+    
+}
+.content
+{
+    align-items: center;
+    text-align: center;
+    color:whitesmoke;
+    background-color:#0b161c;
+    font-size:17px;
+    font-family:"Work Sans","Ubuntu";
+}
+#RegisterButton
+{
+   
+    align-self: center;
+    color:whitesmoke;
+    position:absolute;
+    top:57vh;
+    left:44vw;
+    font-size:30px;
+    font-family: 'Montserrat',sans-serif; 
+    background-color: rgba(50, 130, 184,0.60);
+    border-radius:6vh;
+    line-height: 4vh;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}
+#RegisterButton:hover
+{
+    background-color:rgba(50, 130, 184,1);
+}
+#LandingDiveIN
+{
+    
+    bottom:70px;
+    align-self: center;
+    left:35%;
+    background-color: rgba(50, 130, 184,0.60);
+    font-size:20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right:20px; 
+    font-family: 'Poppins',sans-serif;
+    align-items: center;
+    border-radius:20px;
+    opacity:1;
+    box-shadow: 10px;
+    transition: 300ms ease-out;
+    
+}
+#LandingDiveIN:hover
+{
+    background-color:rgba(50, 130, 184,1);
+}
+

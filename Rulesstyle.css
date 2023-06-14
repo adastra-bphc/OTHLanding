@@ -1,0 +1,92 @@
+#header{
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    display: flex;
+    align-items: center;
+    background-color: black;
+    border-color:black;
+    justify-content: space-between;
+    color: whitesmoke;
+    padding:0px;
+    margin: 0px;
+    font-family: "Work Sans","Roboto","Ubuntu";
+    z-index: 1;   
+    
+}
+#branding{
+    font-size:20px;
+    padding-left:210px;
+}
+
+body
+{
+    background-color:#30336b;
+}
+#RulesLandingPage{
+    position:relative;
+   padding-top: 80px;
+    display:flex;
+    flex-direction: column;
+   background-color:#30336b;
+    align-items: center;
+
+}
+#DiveINButton{
+    background-color: darkcyan;
+    color:whitesmoke;
+    border-color: whitesmoke;
+    padding-right: 20px;
+    height:50px;
+}
+#DiveINButton:hover{
+    border:2px solid cyan;
+    border-radius: 4px;
+    background-color:black;
+}
+.navButtons{
+    height:50px;
+    border-color:black;
+    padding: 10px;
+    margin:0px;
+    transition-duration: 0.3s; 
+    color:whitesmoke;
+    background-color: black;
+    border:2 px solid black;;
+    border-radius: 4px;
+}
+.navButtons:hover{
+    border:2px solid cyan;
+    border-radius: 4px;
+    
+}
+
+.rulestext{   
+    padding-right: 80px;
+    padding-left: 80px;
+    margin: 30px;
+    color:whitesmoke;
+    background-color: #130f40;
+    position:relative;
+    border-radius:20px;
+    font-size:20px;
+    font-family: 'Montserrat',"Ubuntu";
+    border:2px solid white;
+}
+
+#footer{
+    text-align: center;
+    background-color: black;
+    position:fixed;
+    bottom:0px;
+    left:0px;
+    padding: 0px;
+    margin:0px;
+    border:0px;
+    width:100%;
+    font-size:20px;
+    color: azure;
+    font-family: 'Ubuntu',"Verdana",'Roboto'; 
+}
+
