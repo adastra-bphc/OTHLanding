@@ -26,6 +26,11 @@
   font-style: normal;
   font-weight: 600;
 }
+
+.signup-btn{
+  color: black;
+  background-color: #ffcf77;
+}
 .registration-desktop-menu {
   display: flex;
 }
