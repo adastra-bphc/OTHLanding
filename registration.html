@@ -167,17 +167,17 @@
         <section class="registration-hero">
           <div class="registration-heading">
             <h1 class="registration-header">Register in Advance</h1>
-            <div class="registration-form">
+            <form  id="signUpForm">
               <div class="input-group">
-                <label>Email: </label>
-                <input type="text" id="email"/>
-            </div>
-            <div class="input-group">
+                <label>Email: </label>  
+                <input type="text" id="email" required/>
+              </div>
+              <div class="input-group">
                 <label>Password: </label>
-                <input type="text" id="password"/>
-            </div>
-            <button class="signup-btn button">Sign Up</button>
-            </div>
+                <input type="text" id="password" required/>
+              </div>
+              <button type="submit" id="signup-btn" class="signup-btn button">Sign Up</button>
+            </form>
             <p class="registration-caption">
               You will be notified when Galactrix '23 begins
             </p>
