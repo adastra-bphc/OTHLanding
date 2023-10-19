@@ -12,10 +12,16 @@ body{
 html, body, .page-container {
     height: 100%;
 }
+.force{
+    font-weight: 700;
+}
 .logo{
     height: 3.5rem;
     width: 20rem;
-  }
+}
+.cd-hero-slider{
+    width: 100%;
+}
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 19px;
@@ -24,9 +30,7 @@ body {
     line-height: 1.5;
 }
 .bphc{
-    
-    
-    height: 75%;
+    height: 100%;
     width: 100%;
 }
 
