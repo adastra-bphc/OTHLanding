@@ -12,13 +12,22 @@ body{
 html, body, .page-container {
     height: 100%;
 }
-
+.logo{
+    height: 3.5rem;
+    width: 20rem;
+  }
 body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 19px;
     font-weight: 300;
     color: white;
     line-height: 1.5;
+}
+.bphc{
+    
+    
+    height: 75%;
+    width: 100%;
 }
 
 a {
@@ -669,3 +678,4 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
 /* JavaScript Turned Off */
 .no-js #loader-wrapper { display: none; }
 /*============ Preloader ends ==================================*/
+
