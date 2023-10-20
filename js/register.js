@@ -57,7 +57,7 @@ document.getElementById("signup-form").addEventListener("submit", (e)=> {
 onAuthStateChanged(auth, (user)=> {
     if(user){
          //alert("registered")
-        //location.replace("index.html")
+        location.replace("stage0.html")
     }
 })
 
@@ -81,6 +81,7 @@ const signUpClicked = async()=>{
             sendEmailVerification(user)
             .then(()=>{
                 alert("Email Verification link sent")
+                // location.replace("stage0.html")
             })
             .catch((error=>{
                 alert(error)
