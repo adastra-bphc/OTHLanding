@@ -105,8 +105,9 @@
   }
 
   .logo{
-    height: 5rem;
+    height: 7rem;
     width: 25rem;
+    margin-right: 50px;
   }
 
   .stage0{
@@ -127,6 +128,7 @@
 
   .button {
     font-family: "Mokoto",sans-serif;
+    font-weight: bold;
     text-transform: uppercase;
     outline: 0;
     background: #fcf1c0;
