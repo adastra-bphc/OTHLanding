@@ -8,13 +8,6 @@ html, body, .page-container {
 .force{
     font-weight: 700;
 }
-.rules{
-    color: red;
-    
-}
-.discord{
-    color: #00e;
-}
 .logo{
     height: 3.5rem;
     width: 20rem;
@@ -709,6 +702,15 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
     transition: all 0.3 ease;
     cursor: pointer;
   }
+
   .form button:hover,.form button:active,.form button:focus {
     background: #fcf1c0;
   }
+
+.rules-box{
+    position: fixed;
+    left: 5%;
+    margin-right: 10px;
+    margin-left: 10px;
+    max-width: 1000px;
+}
