@@ -529,17 +529,26 @@ figure.effect-julia:hover p {
     .navbar-expand-lg .navbar-collapse {
         justify-content: flex-end;
     }
+    body{
+        max-width: fit-content;
+    }
 }
 
 @media (max-width: 1200px) {
     .navbar .navbar-nav .nav-item .nav-link {
         padding: 15px 45px;
     }
+    body{
+        max-width: fit-content;
+    }
 }
 
 @media (max-width: 1024px) {
     .navbar .navbar-nav .nav-item .nav-link {
         font-size: 1.2rem;
+    }
+    body{
+        max-width: fit-content;
     }
 }
 
@@ -583,6 +592,7 @@ figure.effect-julia:hover p {
     .intro-right {
         width: 35%;
     }
+    
 }
 
 @media (max-width: 767px) {
@@ -686,6 +696,10 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
 .main-image{
     min-width: auto;
     max-height: 450px;
+}
+.atmos{
+    max-width: 800px;
+    max-height: 600px;
 }
 
 .image-box{
