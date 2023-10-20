@@ -687,7 +687,7 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
 }
 
 .btn{
-    font-family: "Mokoto",sans-serif;
+    font-family: 'Tomorrow',sans-serif;
     font-weight: bold;
     text-transform: uppercase;
     outline: 0;
@@ -713,4 +713,17 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
     margin-right: 10px;
     margin-left: 10px;
     max-width: 1000px;
+}
+
+.contact-us{
+    font-weight: bold;
+}
+.contact-details{
+    font-weight: bold;
+}
+
+.title{
+    font-family: 'Tomorrow',sans-serif;
+    font-size: 4vh;
+    font-weight: bold;
 }
