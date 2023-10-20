@@ -8,6 +8,13 @@ html, body, .page-container {
 .force{
     font-weight: 700;
 }
+.rules{
+    color: red;
+    
+}
+.discord{
+    color: #00e;
+}
 .logo{
     height: 3.5rem;
     width: 20rem;
