@@ -84,3 +84,94 @@
         </div>
       </footer>
     </div>
+
+
+
+
+    <h3>Select the number of team participants</h3>
+    <div class="form-check stage0-modal">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="form1" value="option1" checked>
+      <label class="form-check-label one" for="exampleRadios1">
+        1
+      </label>
+    </div>
+    <div class="form-check stage0-modal">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="form2" value="option2">
+      <label class="form-check-label two" for="exampleRadios2">
+        2
+      </label>
+    </div>
+    <div class="form-check stage0-modal">
+      <input class="form-check-input" type="radio" name="exampleRadios" id="form3" value="option3" disabled>
+      <label class="form-check-label three" for="exampleRadios3">
+        3
+      </label>
+    </div>
+    <div class="stage0-form">
+    <div class="one-form">
+      <form>
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="two-form">
+      <form>
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+      </form>
+      <form>
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="three-form">
+      <form>
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+      </form>
+      <form>
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+      </form>
+      <form>
+        <div class="row">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
