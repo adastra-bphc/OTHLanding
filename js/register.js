@@ -73,7 +73,7 @@ const signUpClicked = async()=>{
         const docRef = setDoc(ref,{
             uid: user.uid,
             email : user.email,
-            password: password,
+            password: signUpPassword,
             name: name,
             institute: institute
         });
