@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
     rememberLink.addEventListener('click', function(event) {
         event.preventDefault();
         loginForm.style.display = 'block';
-        registerForm.style.display = 'none';
+        //registerForm.style.display = 'none';
         forgotpassword.style.display = 'none';
     });
 });
