@@ -75,7 +75,7 @@ const signUpClicked = async()=>{
     var signUpPassword = document.getElementById("signup-password").value;
     var name = document.getElementById("name").value;
     var institute = document.getElementById("institute-name").value;
-    createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+    await createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
     .then((userCredential)=>{
         const user=auth.currentUser
         const ref = doc(db, 'users', user.uid);

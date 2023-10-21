@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // FIREBASE BACKEND //
 
 console.log("running login.js")
-import{ getAuth, onAuthStateChanged, signInWithEmailAndPassword, sendEmailVerification, signOut, sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
+import{ getAuth, setPersistence, browserLocalPersistence, onAuthStateChanged, signInWithEmailAndPassword, sendEmailVerification, signOut, sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
 import {getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc, setDoc} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"
 const db = getFirestore();
 const auth = getAuth();
@@ -65,26 +65,35 @@ onAuthStateChanged(auth, async(user)=> {
     if(user){
          logOutBtn.style.display = "block";
         console.log(user)
-        location.replace("ThankYou.html")
+        // location.replace("stage0.html")
     }
     else{
         logOutBtn.style.display = "none";
     }
 })
 
+setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    console.log("Persistence successfully set to  local")
+  })
+  .catch((error) => {
+    // Handle errors if persistence couldn't be set
+    console.error('Error setting persistence:', error);
+  });
+
 const logInClicked = async()=>{
-    var logInEmail= document.getElementById("login-email").value;
-    var logInPassword = document.getElementById("login-password").value;
-    signInWithEmailAndPassword(auth, logInEmail, logInPassword)
+    const logInEmail= document.getElementById("login-email").value;
+    const logInPassword = document.getElementById("login-password").value;
+    await signInWithEmailAndPassword(auth, logInEmail, logInPassword)
     .then((userCredential)=>{
         const user=auth.currentUser
         console.log(user)
         if(!user.emailVerified){
-            alert("Please verify email before signing in.\nCheck your registered email for the link")
-            signOut(auth)
+            alert("Please verify email before signing in.\nCheck your registered email for the link");
+            signOut(auth);
         }
         else{
-            alert("You have been Logged In")
+            alert("You have been Logged In");
         }
     })
     .catch((error=>{
@@ -106,9 +115,13 @@ const pwdBtnClicked = async()=>{
     })
 }
 
+const logOutClicked = async()=>{
+    await signOut(auth);
+}
+
 logInBtn.addEventListener("click", logInClicked)
 pwdBtn.addEventListener("click", pwdBtnClicked)
-logOutBtn.addEventListener("click", signOut(auth))
+logOutBtn.addEventListener("click", logOutClicked)
 
 
 
