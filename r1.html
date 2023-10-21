@@ -6,11 +6,11 @@
     <title>GALACTRIX '23</title>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <!-- <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script> -->
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/r1.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link href='https://fonts.googleapis.com/css?family=Tomorrow' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet'>
     <script type="module" src="js/firebase.js" ></script>
-    <script type="module" src="js/login.js" ></script>
+    <script type="module" src="js/r1.js" ></script>
   </head>
 <body>
     <video autoplay muted loop id="bg-video">
@@ -30,49 +30,52 @@
                 <li><a href="r1.html" class="navbar-item">Round-1</a></li>
             </div>
             <li><a href="login.html" class="log-out">Click to Log Out</a></li>
-            
           </ul>
         </div>
       </div>
     </header>
     
-    <div class="login-page login-modal">    
-        <div class="form">
-          <form class="login-form" id="login-form">
-            <input type="email" id="login-email" placeholder="email" required/>
-            <input type="password" id="login-password" placeholder="password" required/>
-            <a href="#"> <button type="submit" class="login-btn button btn-form"  >LOGIN</button></a>
-            <p class="msg">Not registered? <a href="register.html">Create an account</a></p>
-            <p class="message">Forgot Password <a id="forgot-password" href="#">Click here</a></p>
-          </form>
-          
-          <form class="forgot-password" id="fpassword-form">
-            <input type="email" id="reset-email" placeholder="email" required/>
-            <button type="submit" class="fpassword-btn btn-form">Send Reset Email</button>
-            <p class="message">Reset the password? <a href="#">Sign In</a></p>
-          </form>
-        </div>
+    <div class="title" style="color: white;">
+        Round-1 &nbsp; of &nbsp; Galactrix &nbsp;'23 &nbsp; starts &nbsp; in:
     </div>
-    <div class="welcome-modal"> 
-        <div class="form">
-            <p class="message title">Welcome to GALACTRIX '23</p>
-            <p class="message1 subtext">Join our Discord Channel to get regular updates:
-                <a href="https://discord.gg/q2K75gd9Vp" target="_blank"><img class="discord-btn" src="https://www.cdnlogo.com/logos/d/84/discord.svg"></a></p>
-            <p class="message1 subtext">To get a taste of Galactrix'23<br><a class="stage0-btn">Click here</a></p>
-        </div>
-    </div>
-    <div class="stage0-modal">
-        <a class="return-btn">&lt return</a>
-        <p class="stage0-clue">
-          In darkness they hide, a cosmic abyss,<br>Where gravity's pull is an eternal kiss.<br>
-          Invisible wonders in the celestial skies,<br>
-          They hold secrets that mystify
-        </p>
-        <form class="stage0-form" id="stage0-form">
-          <input type="text" id="answer0" name="answer0" placeholder="Your answer" class="answer0">
-          <button class="button" id="submit-btn">Submit</button>
-        </form>
-    </div>
+    <p style="
+      text-align: center;
+      font-size: 60px;
+      margin-top: 0px;
+      color: white;
+    " id="demo"></p>
+
+    <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("Oct 27, 2023 00:00:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+        
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+        
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+    // Output the result in an element with id="demo"
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+        
+    // If the count down is over, write some text 
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+    }, 1000);
+    </script>
+
     <div class="stats-modal">
         <!-- <a class="return-btn">&lt return</a> -->
         <p class="title">Hey, <span id="user-name"></span></p>
@@ -86,8 +89,7 @@
         <form class="stats-form">
           <button class="button stats-close">Okay</button>
         </form>
-    </div>  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </div>
   </body>
   <footer>
     Made with ❤️ by <a class="footer" target="_blank" href="https://www.instagram.com/bphc.ad.astra/">Ad Astra</a>

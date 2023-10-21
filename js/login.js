@@ -1,50 +1,88 @@
-document.addEventListener("DOMContentLoaded", function() {
-    var registerForm = document.querySelector('.register-form');
-    var loginForm = document.querySelector('.login-form');
-    var forgotpassword = document.querySelector('.forgot-password');
-    var loginLink = document.querySelector('.message a');
-    var registerLink = document.querySelector('.login-form .message a');
-    var forgotLink = document.querySelector('#forgot-password');
-    var rememberLink = document.querySelector('.forgot-password .message a');
+//IMPORTANT IMPORTS DO NOT TOUCH//
+import{ getAuth, setPersistence, browserLocalPersistence, onAuthStateChanged, signInWithEmailAndPassword, sendEmailVerification, signOut, sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
+import {getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, setDoc} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"
+const db = getFirestore();
+const auth = getAuth();
+// var user = auth.currentUser;
+//IMPORTANT IMPORTS DO NOT TOUCH//
 
-    // registerForm.style.display = 'block';
+
+var loginForm = document.querySelector('.login-form');
+var forgotpassword = document.querySelector('.forgot-password');
+var loginLink = document.querySelector('.message a');
+var forgotLink = document.querySelector('#forgot-password');
+var rememberLink = document.querySelector('.forgot-password .message a');
+var welcomeModal = document.querySelector('.welcome-modal');
+var loginModal = document.querySelector('.login-page');
+var stage0Modal = document.querySelector('.stage0-modal');
+var stage0Btn = document.querySelector('.stage0-btn');
+var navItems = document.querySelector('.navbar-items');
+var returnBtn = document.querySelector('.return-btn');
+var statsModal = document.querySelector('.stats-modal');
+var statsOpen = document.querySelector('.stats-open');
+var statsClose = document.querySelector('.stats-close');
+var stgentry=0;
+var stage0entry;
+
+loginModal.style.display = 'block';
+forgotpassword.style.display = 'none';
+welcomeModal.style.display = 'none';
+stage0Modal.style.display = 'none';
+navItems.style.display = 'none';
+statsModal.style.display='none';
+
+loginLink.addEventListener('click', function(event) {
+    event.preventDefault();
     loginForm.style.display = 'block';
     forgotpassword.style.display = 'none';
+});
 
-    loginLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        // registerForm.style.display = 'none';
-        loginForm.style.display = 'block';
-        forgotpassword.style.display = 'none';
-    });
+forgotLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    loginForm.style.display = 'none';
+    forgotpassword.style.display = 'block';
+});
+rememberLink.addEventListener('click', function(event) {
+    event.preventDefault();
+    loginForm.style.display = 'block';
+    forgotpassword.style.display = 'none';
+});
+const stage0BtnClicked = async()=>{
+    stgentry+=1
+    event.preventDefault();
+    welcomeModal.style.display = 'none';
+    stage0Modal.style.display = 'block';
+    if(stgentry==1){
+        var stage0entry =Date();
+        console.log(stage0entry);
+        alert("Your starting time has been recorded.\nNote- This is an example problem and won't count towards your final score")
+        const user = auth.currentUser;
+        console.log(user);
+        const docRef = doc(db, 'users', user.uid);
+        await updateDoc(docRef, {
+            Stage0EntryTime: stage0entry
+        });
+    }
+};
 
-    // registerLink.addEventListener('click', function(event) {
-    //     event.preventDefault();
-    //     loginForm.style.display = 'none';
-    //     registerForm.style.display = 'block';
-    //     forgotpassword.style.display = 'none';
-    // });
-    forgotLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        // registerForm.style.display = 'none';
-        loginForm.style.display = 'none';
-        forgotpassword.style.display = 'block';
-    });
-    rememberLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        loginForm.style.display = 'block';
-        //registerForm.style.display = 'none';
-        forgotpassword.style.display = 'none';
-    });
+returnBtn.addEventListener("click", function(event){
+    event.preventDefault();
+    stage0Modal.style.display = 'none';
+    welcomeModal.style.display = 'block';
+});
+
+statsOpen.addEventListener("click", function(event){
+    event.preventDefault();
+    statsModal.style.display='block';
+});
+statsClose.addEventListener("click", function(event){
+    event.preventDefault();
+    statsModal.style.display='none';
 });
 
 // FIREBASE BACKEND //
 
 console.log("running login.js")
-import{ getAuth, setPersistence, browserLocalPersistence, onAuthStateChanged, signInWithEmailAndPassword, sendEmailVerification, signOut, sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
-import {getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc, setDoc} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"
-const db = getFirestore();
-const auth = getAuth();
 console.log(auth)
 
 const logInBtn = document.querySelector(".login-btn")
@@ -52,25 +90,67 @@ const pwdBtn = document.querySelector(".fpassword-btn")
 const logOutBtn = document.querySelector('.log-out');
 logOutBtn.style.display = "none";
 
+const submitBtn = document.getElementById("submit-btn");
+
 console.log(logInBtn)
+
+
 document.getElementById("login-form").addEventListener("submit", (e)=> {
     e.preventDefault()
 })
-
 document.getElementById("fpassword-form").addEventListener("submit", (e)=> {
     e.preventDefault()
 })
+document.getElementById("stage0-form").addEventListener("submit", (e)=> {
+    e.preventDefault()
+})
+
 
 onAuthStateChanged(auth, async(user)=> {
-    if(user){
-         logOutBtn.style.display = "block";
+    console.log("inside onAuthStateChanged")
+    if(user && user.emailVerified){
+        getUserData();
+        logOutBtn.style.display = "block";
         console.log(user)
+        welcomeModal.style.display = "block";
+        loginModal.style.display = "none";
+        navItems.style.display = 'flex';
         // location.replace("stage0.html")
     }
     else{
         logOutBtn.style.display = "none";
+        navItems.style.display = 'none';
     }
 })
+
+const getUserData = async()=>{
+    try{
+        console.log("inside getUserData")
+        const user = auth.currentUser;
+        console.log(user)
+        const docRef = doc(db, 'users', user.uid);
+        var userStg0Time = "N/A";
+        await onSnapshot(docRef, (doc) => {
+            console.log(doc.data())
+            var userData = doc.data();
+            var userName = userData.name;
+            var userInstitute = userData.institute;
+            var userEmail = userData.email;
+            var userStg0Time = userData.Stage0Time;
+            console.log(userData.name)
+            document.getElementById('user-name').innerHTML = userName;
+            document.getElementById('user-email').innerHTML = userEmail;
+            document.getElementById('user-institute').innerHTML = userInstitute;
+            document.getElementById('user-stage0-time').innerHTML = userStg0Time;
+        });
+        
+    }
+    catch(error){
+        console.log(error)
+    }
+}
+
+
 
 setPersistence(auth, browserLocalPersistence)
   .then(() => {
@@ -103,7 +183,7 @@ const logInClicked = async()=>{
 }
 
 const pwdBtnClicked = async()=>{
-    var resetEmail = document.getElementById("reset-email").value
+    var resetEmail = document.getElementById("reset-email").value;
     
     await sendPasswordResetEmail(auth, resetEmail)
     .then(()=>{
@@ -119,9 +199,36 @@ const logOutClicked = async()=>{
     await signOut(auth);
 }
 
+const submitBtnClicked= async()=>{
+    var ans0 = document.getElementById('answer0');
+    ans0=ans0.value;
+    console.log("submitBtnClicked")
+    // console.log(ans0)
+    if((ans0=="blackhole") || (ans0=="blackholes")){
+        // console.log("inside answer")
+        var stage0exit=new Date();
+        console.log(stage0exit);
+        const user = auth.currentUser;
+        console.log(user);
+        const docRef = doc(db, 'users', user.uid);
+        var stage0time = Math.abs((stage0entry-stage0exit))/(1000*60);
+        console.log(stage0time)
+        await updateDoc(docRef, {
+            Stage0SubmitTime: Date(),
+            Stage0Time: (stage0entry-stage0exit)/(1000*60)
+        });
+        alert("Correct Answer. \nTime Taken for Stage 0-"+ stage0time +" minutes")
+    }
+    else{
+        alert("Your answer is incorrect.\nPlease try again, make sure you are following the guidelines for answering.")
+    }
+}
+
 logInBtn.addEventListener("click", logInClicked)
 pwdBtn.addEventListener("click", pwdBtnClicked)
 logOutBtn.addEventListener("click", logOutClicked)
+submitBtn.addEventListener("click", submitBtnClicked)
+stage0Btn.addEventListener("click", stage0BtnClicked)
 
 
 

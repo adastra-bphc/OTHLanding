@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 console.log("running registration.js")
 import{ getAuth, onAuthStateChanged, createUserWithEmailAndPassword, sendEmailVerification} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
-import {getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc, setDoc} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"
+import {getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, setDoc} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"
 const db = getFirestore();
 const auth = getAuth();
 console.log(auth)
@@ -90,7 +90,7 @@ const signUpClicked = async()=>{
             sendEmailVerification(user)
             .then(()=>{
                 alert("Email Verification link sent")
-                location.replace("stage0.html")
+                location.replace("login.html")
             })
             .catch((error=>{
                 alert(error)
