@@ -8,34 +8,34 @@ document.addEventListener("DOMContentLoaded", function() {
     var rememberLink = document.querySelector('.forgot-password .message a');
 
     registerForm.style.display = 'block';
-    loginForm.style.display = 'none';
-    forgotpassword.style.display = 'none';
+    // loginForm.style.display = 'none';
+    // forgotpassword.style.display = 'none';
 
-    loginLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        registerForm.style.display = 'none';
-        loginForm.style.display = 'block';
-        forgotpassword.style.display = 'none';
-    });
+    // loginLink.addEventListener('click', function(event) {
+    //     event.preventDefault();
+    //     registerForm.style.display = 'none';
+    //     loginForm.style.display = 'block';
+    //     forgotpassword.style.display = 'none';
+    // });
 
-    registerLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        loginForm.style.display = 'none';
-        registerForm.style.display = 'block';
-        forgotpassword.style.display = 'none';
-    });
-    forgotLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        registerForm.style.display = 'none';
-        loginForm.style.display = 'none';
-        forgotpassword.style.display = 'block';
-    });
-    rememberLink.addEventListener('click', function(event) {
-        event.preventDefault();
-        loginForm.style.display = 'block';
-        registerForm.style.display = 'none';
-        forgotpassword.style.display = 'none';
-    });
+    // registerLink.addEventListener('click', function(event) {
+    //     event.preventDefault();
+    //     loginForm.style.display = 'none';
+    //     registerForm.style.display = 'block';
+    //     forgotpassword.style.display = 'none';
+    // });
+    // forgotLink.addEventListener('click', function(event) {
+    //     event.preventDefault();
+    //     registerForm.style.display = 'none';
+    //     loginForm.style.display = 'none';
+    //     forgotpassword.style.display = 'block';
+    // });
+    // rememberLink.addEventListener('click', function(event) {
+    //     event.preventDefault();
+    //     loginForm.style.display = 'block';
+    //     registerForm.style.display = 'none';
+    //     forgotpassword.style.display = 'none';
+    // });
 });
 
 // FIREBASE BACKEND //
@@ -54,12 +54,21 @@ document.getElementById("signup-form").addEventListener("submit", (e)=> {
     e.preventDefault()
 })
 
-onAuthStateChanged(auth, (user)=> {
-    if(user){
-         //alert("registered")
-        location.replace("stage0.html")
-    }
-})
+// onAuthStateChanged(auth, (user)=> {
+//     if(user){
+//         if(user.emailVerified!=1){
+//             sendEmailVerification(user)
+//             try{
+//                 alert("email verification sent")
+//             }
+//             catch{
+//                 alert(error)
+//             }
+//         }
+//          //alert("registered")
+//         location.replace("stage0.html")
+//     }
+// })
 
 const signUpClicked = async()=>{
     var signUpEmail= document.getElementById("signup-email").value;
@@ -77,19 +86,17 @@ const signUpClicked = async()=>{
             name: name,
             institute: institute
         });
-        try{
+        
             sendEmailVerification(user)
             .then(()=>{
                 alert("Email Verification link sent")
-                // location.replace("stage0.html")
+                location.replace("stage0.html")
             })
             .catch((error=>{
                 alert(error)
             }))
-        }
-        catch{
-            alert(error)
-        }
+        
+        
     })
     .catch((error=>{
         console.log(error)

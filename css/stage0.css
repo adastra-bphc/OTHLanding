@@ -15,11 +15,20 @@
     margin-right: 35px;
 }
 
-.login-page {
-  width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
+.log-out{
+  font-family: 'Tomorrow',sans-serif;
+  font-size: 2.5vh;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  right:0%;
+  top: 40%;
+  text-decoration: none;
 }
+.log-out:hover{
+  color: #ffe77d;
+}
+
 .form {
   position: relative;
   z-index: 1;
@@ -69,9 +78,7 @@
   color: #00e;
   text-decoration: none;
 }
-.form .register-form {
-  display: none;
-}
+
 .container {
   position: relative;
   z-index: 1;
@@ -150,4 +157,21 @@ body {
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+}
+
+
+footer {
+  position: fixed;
+  bottom: 0%;
+  left: 45%;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.90);
+  color: white;
+}
+.footer:hover{
+  color:#ffe77d ;
 }
