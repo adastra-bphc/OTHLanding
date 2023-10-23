@@ -1,6 +1,6 @@
 //IMPORTANT IMPORTS DO NOT TOUCH//
 import{ getAuth, setPersistence, browserLocalPersistence, onAuthStateChanged, signInWithEmailAndPassword, sendEmailVerification, signOut, sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
-import {getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, setDoc} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"
+import {getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, setDoc, getDoc} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"
 const db = getFirestore();
 const auth = getAuth();
 // var user = auth.currentUser;
@@ -109,12 +109,12 @@ document.getElementById("stage0-form").addEventListener("submit", (e)=> {
 onAuthStateChanged(auth, async(user)=> {
     console.log("inside onAuthStateChanged")
     if(user && user.emailVerified){
-        getUserData();
         logOutBtn.style.display = "block";
         console.log(user)
         welcomeModal.style.display = "block";
         loginModal.style.display = "none";
         navItems.style.display = 'flex';
+        getUserData();
         // location.replace("stage0.html")
     }
     else{
@@ -130,9 +130,22 @@ const getUserData = async()=>{
         console.log(user)
         const docRef = doc(db, 'users', user.uid);
         var userStg0Time = "N/A";
-        await onSnapshot(docRef, (doc) => {
-            console.log(doc.data())
-            var userData = doc.data();
+        // await onSnapshot(docRef, (doc) => {
+        //     console.log(doc.data())
+            // var userData = doc.data();
+            // var userName = userData.name;
+            // var userInstitute = userData.institute;
+            // var userEmail = userData.email;
+            // var userStg0Time = userData.Stage0Time;
+            // console.log(userData.name)
+            // document.getElementById('user-name').innerHTML = userName;
+            // document.getElementById('user-email').innerHTML = userEmail;
+            // document.getElementById('user-institute').innerHTML = userInstitute;
+            // document.getElementById('user-stage0-time').innerHTML = userStg0Time;
+        // });
+        const docSnap = await getDoc(docRef);
+        try{
+            var userData = docSnap.data();
             var userName = userData.name;
             var userInstitute = userData.institute;
             var userEmail = userData.email;
@@ -142,11 +155,13 @@ const getUserData = async()=>{
             document.getElementById('user-email').innerHTML = userEmail;
             document.getElementById('user-institute').innerHTML = userInstitute;
             document.getElementById('user-stage0-time').innerHTML = userStg0Time;
-        });
-        
+        }
+        catch(e){
+            alert(e);
+        }  
     }
     catch(error){
-        console.log(error)
+        alert(error)
     }
 }
 
@@ -173,7 +188,7 @@ const logInClicked = async()=>{
             signOut(auth);
         }
         else{
-            alert("You have been Logged In");
+            alert("You have been Logged In.\nPlease refresh the page if you are not redirected");
         }
     })
     .catch((error=>{
@@ -217,7 +232,8 @@ const submitBtnClicked= async()=>{
             Stage0SubmitTime: Date(),
             Stage0Time: (stage0entry-stage0exit)/(1000*60)
         });
-        alert("Correct Answer. \nTime Taken for Stage 0-"+ stage0time +" minutes")
+        alert("Correct Answer. \nTime Taken for Stage 0-"+ stage0time +" minutes" +"\nRedirecting to Round-1.")
+        location.replace("r1.html")
     }
     else{
         alert("Your answer is incorrect.\nPlease try again, make sure you are following the guidelines for answering.")

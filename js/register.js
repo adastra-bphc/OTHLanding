@@ -89,7 +89,7 @@ const signUpClicked = async()=>{
         
             sendEmailVerification(user)
             .then(()=>{
-                alert("Email Verification link sent")
+                alert("Email Verification link sent.\nPlease verify your email before signing in.")
                 location.replace("login.html")
             })
             .catch((error=>{

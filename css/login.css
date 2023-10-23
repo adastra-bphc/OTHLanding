@@ -72,7 +72,8 @@
     /* background-color: rgb(192, 205, 117); */
   }
   .log-out:hover{
-    color: #ffe77d;
+    color: #FFF1BA;
+    text-shadow: -1.8px 1.8px #d5318f;
   }
 
 .navbar-item{
@@ -88,7 +89,8 @@
 }
 
 .navbar-item:hover{
-    color: #ffe77d;
+  color: #FFF1BA;
+  text-shadow: -1.8px 1.8px #d5318f;
   }
 
   .form {
@@ -266,4 +268,10 @@ a:hover{
 
 span{
     font-weight: bold;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    color: black;
+    background-color: #ffe77d!important;
 }

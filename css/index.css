@@ -626,7 +626,7 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
   }
 
   .form button:hover,.form button:active,.form button:focus {
-    background: #fcf1c0;
+    background: #ffe77d;
   }
 
 .rules-box{

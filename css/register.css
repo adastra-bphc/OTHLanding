@@ -145,7 +145,11 @@
     cursor: pointer;
   }
 
-
+  .btn-primary:hover,
+  .btn-primary:focus {
+      color: black;
+      background-color: #ffe77d!important;
+  }
 
   footer {
     position: fixed;
