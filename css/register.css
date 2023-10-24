@@ -166,3 +166,16 @@
 .footer:hover{
     color:#ffe77d ;
 }
+
+.bits-logo{
+  position:absolute;
+  right: 0%;
+  top: 15%;
+  width: 25vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .bits-logo {
+    display:none;
+  }
+}

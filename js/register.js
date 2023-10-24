@@ -84,7 +84,8 @@ const signUpClicked = async()=>{
             email : user.email,
             password: signUpPassword,
             name: name,
-            institute: institute
+            institute: institute,
+            creationTime: Date()
         });
         
             sendEmailVerification(user)

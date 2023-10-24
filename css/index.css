@@ -9,8 +9,8 @@ html, body, .page-container {
     font-weight: 700;
 }
 .logo{
-    height: 3.5rem;
-    width: 20rem;
+    height: 8vh;
+    width: auto;
 }
 .cd-hero-slider{
     width: 100%;
@@ -113,8 +113,8 @@ h2 {
 }
 
 .navbar .navbar-nav .nav-item {
-    margin-left: 15px;
-    margin-right: 15px;
+    /* margin-left: 10px; */
+    margin-right: 10px;
 }
 
 .navbar .navbar-nav .nav-item:last-child {
@@ -650,7 +650,7 @@ border-top-color: #f9c922; /* Chrome, Opera 15+, Safari 5+ */ animation: spin 1.
     font-weight: bold;
 }
 .nav-item{
-    font-size: 3.5vh !important;
+    font-size: 3vh !important;
 }
 
 footer{
@@ -678,4 +678,8 @@ footer {
 }
 .footer:hover{
     color:#ffe77d ;
+}
+
+.home-nav{
+    margin-left: 10px !important;
 }
