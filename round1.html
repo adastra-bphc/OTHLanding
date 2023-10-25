@@ -6,12 +6,12 @@
     <title>GALACTRIX '23</title>
     <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
-    <link rel="stylesheet" href="css/r1.css">
+    <link rel="stylesheet" href="css/round1.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Tomorrow' rel='stylesheet'>
     <script type="module" src="js/firebase.js" ></script>
-    <script type="module" src="js/r1.js" ></script>
+    <script type="module" src="js/round1.js" ></script>
   </head>
 <body>
     <video autoplay muted loop id="bg-video">
@@ -22,8 +22,7 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
             <img class="logo" src="./img/bgremoved.png">
-          </a>
-  
+          </a>  
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" style="display: flex; justify-content: flex-end;">
             <div class="navbar-items">
                 <li><a class="navbar-item stats-open" id="stat-open">My Stats &gt</a></li>
@@ -35,62 +34,15 @@
         </div>
       </div>
     </header>
-    
     <div class="title" style="color: white;">
         Round-1 &nbsp; of &nbsp; Galactrix &nbsp;'23 &nbsp; starts &nbsp; in:
     </div>
-    <p class="countdown" style="
-      text-align: center;
-      font-size: 60px;
-      margin-top: 0px;
-      color: white;
-    " id="demo"></p>
-
-    <script>
-    // Set the date we're counting down to
-    var countDownDate = new Date("Oct 27, 2023 00:00:00").getTime();
-
-    // Update the count down every 1 second
-    var x = setInterval(function() {
-
-    // Get today's date and time
-    var now = new Date().getTime();
-        
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-        
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-    // Output the result in an element with id="demo"
-    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-        
-    // If the count down is over, write some text 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
-    }
-    }, 1000);
-    </script>
-
-    <div class="stats-modal">
-        <!-- <a class="return-btn">&lt return</a> -->
-        <p class="title">Hey, <span id="user-name"></span></p>
-        <p class="stage0-clue">
-          Email: <span id="user-email"></span> <br>
-          Institute: <span id="user-institute"></span>
-        </p>
-        <p>
-            Stage-0 Time: <span id="user-stage0-time"></span> mins
-        </p>
-        <p> Refresh the page to get latest stats!</p>
-        <form class="stats-form">
-          <button class="button stats-close">Okay</button>
-        </form>
+    <div class="stage-buttons">
+      <button class="r1s1-btn">stage-1</button>
+      <button class="r1s2-btn">stage-2</button>
+      <button class="r1s3-btn">stage-3</button>
+      <button class="r1s4-btn">stage-4</button>
+      <button class="r1s5-btn">stage-5</button>
     </div>
   </body>
   <footer>
