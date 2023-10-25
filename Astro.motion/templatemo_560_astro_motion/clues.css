@@ -1,0 +1,180 @@
+:root {
+    --color: #00d7fe;
+    --animation-duration: 1600;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.stage{
+    font-size:80px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif, 'Times New Roman', Times, serif;
+}
+
+.glow-on-hover {
+    width: 230px;
+    height: 150px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+  }
+  
+  .glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+  }
+
+  .glow-on-hover:hover:before {
+    opacity: 1;
+  }
+  
+  .glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+  }
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+
+body::before {
+    width: 1.5vh;
+    height: 1.5vh;
+    background: var(--color);
+    border-radius: 50%;
+    box-shadow: 0 0 1vh 1px var(--color);
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s;
+    margin-left: 317px;
+    margin-top: 128px;
+    translate: 15px -8px;
+}
+
+svg {
+    width: 100%;
+    height: 75vh;
+    
+}
+
+circle {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    fill: none;
+    stroke: var(--color);
+    stroke-width: 1;
+    stroke-dasharray: 310;
+    stroke-dashoffset: 310;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: calc(var(--animation-duration) * 1ms);
+    transform-origin: center;
+    transition: 0.75s;
+    z-index: 5;
+}
+
+@keyframes drawCircle {
+    to {
+        stroke-dashoffset: -310;
+    }
+}
+
+circle:nth-child(1) {
+    transform: rotateX(80deg) rotateY(20deg) rotateZ(0deg);
+    animation-name: drawCircle, rotateCircle1;
+}
+
+@keyframes rotateCircle1 {
+    to {
+        transform: rotateX(80deg) rotateY(20deg) rotateZ(360deg);
+    }
+}
+
+circle:nth-child(2) {
+    transform: rotateX(75deg) rotateY(60deg) rotateZ(0deg);
+    animation-name: drawCircle, rotateCircle2;
+    animation-delay: 0.125s;
+}
+
+@keyframes rotateCircle2 {
+    to {
+        transform: rotateX(75deg) rotateY(60deg) rotateZ(360deg);
+    }
+}
+
+circle:nth-child(3) {
+    transform: rotateX(-75deg) rotateY(60deg) rotateZ(0deg);
+    animation-name: drawCircle, rotateCircle3;
+    animation-delay: 0.25s;
+}
+
+@keyframes rotateCircle3 {
+    to {
+        transform: rotateX(-75deg) rotateY(60deg) rotateZ(360deg);
+    }
+}
+
+circle:nth-child(4) {
+    transform: rotateX(-80deg) rotateY(20deg) rotateZ(0deg);
+    animation-name: drawCircle, rotateCircle4;
+    animation-delay: 0.375s;
+}
+
+@keyframes rotateCircle4 {
+    to {
+        transform: rotateX(-80deg) rotateY(20deg) rotateZ(360deg);
+    }
+}
+
+.clue{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 500px;
+    background-color: #a41e1e;
+    position: relative;
+    translate: 0px -500px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
