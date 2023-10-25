@@ -1,6 +1,6 @@
 //IMPORTANT IMPORTS DO NOT TOUCH//
 import{ getAuth, setPersistence, browserLocalPersistence, onAuthStateChanged, signInWithEmailAndPassword, sendEmailVerification, signOut, sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
-import {getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, setDoc, getDoc} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"
+import {getFirestore, collection, addDoc, onSnapshot, doc, updateDoc, arrayUnion, getDoc} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"
 const db = getFirestore();
 const auth = getAuth();
 // var user = auth.currentUser;
@@ -48,19 +48,22 @@ rememberLink.addEventListener('click', function(event) {
     forgotpassword.style.display = 'none';
 });
 const stage0BtnClicked = async()=>{
-    stgentry+=1
+    stgentry+=1;
+    getUserData();
     event.preventDefault();
     welcomeModal.style.display = 'none';
     stage0Modal.style.display = 'block';
     if(stgentry==1){
-        var stage0entry =Date();
+        stage0entry =new Date().getTime();
         console.log(stage0entry);
         alert("Your starting time has been recorded.\nNote- This is an example problem and won't count towards your final score")
         const user = auth.currentUser;
         console.log(user);
         const docRef = doc(db, 'users', user.uid);
         await updateDoc(docRef, {
-            Stage0EntryTime: stage0entry
+            // s0entrycount: s0entrycnt+1,
+            Stage0EntryTime: stage0entry,
+            arrs0entry: arrayUnion(stage0entry)
         });
     }
 };
@@ -130,19 +133,6 @@ const getUserData = async()=>{
         console.log(user)
         const docRef = doc(db, 'users', user.uid);
         var userStg0Time = "N/A";
-        // await onSnapshot(docRef, (doc) => {
-        //     console.log(doc.data())
-            // var userData = doc.data();
-            // var userName = userData.name;
-            // var userInstitute = userData.institute;
-            // var userEmail = userData.email;
-            // var userStg0Time = userData.Stage0Time;
-            // console.log(userData.name)
-            // document.getElementById('user-name').innerHTML = userName;
-            // document.getElementById('user-email').innerHTML = userEmail;
-            // document.getElementById('user-institute').innerHTML = userInstitute;
-            // document.getElementById('user-stage0-time').innerHTML = userStg0Time;
-        // });
         const docSnap = await getDoc(docRef);
         try{
             var userData = docSnap.data();
@@ -150,6 +140,8 @@ const getUserData = async()=>{
             var userInstitute = userData.institute;
             var userEmail = userData.email;
             var userStg0Time = userData.Stage0Time;
+            var s0entrytime = userData.arrs0entry[0];
+            alert(s0entrytime)
             console.log(userData.name)
             document.getElementById('user-name').innerHTML = userName;
             document.getElementById('user-email').innerHTML = userEmail;
@@ -221,16 +213,16 @@ const submitBtnClicked= async()=>{
     // console.log(ans0)
     if((ans0=="blackhole") || (ans0=="blackholes")){
         // console.log("inside answer")
-        var stage0exit=new Date();
+        var stage0exit=new Date().getTime();
         console.log(stage0exit);
         const user = auth.currentUser;
         console.log(user);
         const docRef = doc(db, 'users', user.uid);
-        var stage0time = Math.abs((stage0entry-stage0exit))/(1000*60);
-        console.log(stage0time)
+        var stage0time = (stage0exit-stage0entry)/60000;
+        stage0time=Math.round(stage0time*1000)/1000;
         await updateDoc(docRef, {
-            Stage0SubmitTime: Date(),
-            Stage0Time: (stage0entry-stage0exit)/(1000*60)
+            Stage0SubmitTime: Date.now(),
+            Stage0Time: stage0time
         });
         alert("Correct Answer. \nTime Taken for Stage 0-"+ stage0time +" minutes" +"\nRedirecting to Round-1.")
         location.replace("r1.html")
