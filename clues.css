@@ -272,3 +272,14 @@ span{
   .poem{
     font-weight: 500;
   }
+  .link{
+    color: #000000;
+    text-decoration: none;
+  }
+  .post{
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-size: 75px;
+    font-family: 'Nosifer', sans-serif;
+  }
