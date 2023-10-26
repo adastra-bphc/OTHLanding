@@ -80,6 +80,7 @@
     max-width: 500px;
     margin: 0 auto 100px;
     padding: 45px;
+    padding-bottom: 60px;
     border-radius: 5%;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -247,7 +248,7 @@ span{
   
   color: black;
   background: #fcf1c0;
-    box-shadow: -6px 6px #d5318f;
+    
   padding: 10px;
   text-decoration: none;
   display: flex
@@ -256,6 +257,8 @@ span{
 .dropdown {
   position: relative;
   display: inline-block;
+  left: 47.5%;
+  bottom: 150px;
 }
 
 .dropdown-content {
