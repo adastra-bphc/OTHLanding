@@ -141,7 +141,6 @@ const getUserData = async()=>{
             var userEmail = userData.email;
             var userStg0Time = userData.Stage0Time;
             var s0entrytime = userData.arrs0entry[0];
-            alert(s0entrytime)
             console.log(userData.name)
             document.getElementById('user-name').innerHTML = userName;
             document.getElementById('user-email').innerHTML = userEmail;

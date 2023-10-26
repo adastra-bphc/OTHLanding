@@ -32,6 +32,10 @@
     margin-left: 520px;
 }
 
+.stats-text{
+  text-align: left;
+}
+
   .log-out{
     font-family: 'Tomorrow',sans-serif;
     font-size: 2.5vh;
