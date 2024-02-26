@@ -2,6 +2,6 @@
 
 Neil Gudwala
 
-Akshaj Agarway
+Akshaj Agarwal
 
 Swayam Shree Sharma
